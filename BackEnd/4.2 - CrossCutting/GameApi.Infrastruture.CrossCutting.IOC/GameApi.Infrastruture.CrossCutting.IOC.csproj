@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\2.0 - Application\GameApi.Application\GameApi.Application.csproj" />
+    <ProjectReference Include="..\..\3.0 - Domain\GameApi.Domain.Services\GameApi.Domain.Services.csproj" />
+    <ProjectReference Include="..\..\4.0 - Infrastructure\GameApi.Infrastructure.Repository\GameApi.Infrastructure.Repository.csproj" />
+    <ProjectReference Include="..\GameApi.Infrastruture.CrossCutting.Adapter\GameApi.Infrastruture.CrossCutting.Adapter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFac" Version="5.1.2" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
