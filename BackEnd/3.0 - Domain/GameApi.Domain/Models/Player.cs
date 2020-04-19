@@ -6,7 +6,5 @@ namespace GameApi.Domain.Models
 
         public int? TeamId { get; set; }
 
-        public virtual Team Team { get; set; }
-
     }
 }

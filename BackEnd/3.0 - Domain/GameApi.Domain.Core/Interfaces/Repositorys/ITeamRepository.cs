@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using GameApi.Domain.Models;
 
 namespace GameApi.Domain.Core.Interfaces.Repositorys

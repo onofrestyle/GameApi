@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,6 +22,12 @@ namespace GameApi.Presentation.Controllers
 
         [HttpGet]
         public ActionResult<IEnumerable<TeamDTO>> GetAll()
+        {
+            return Ok(_applicationServiceTeam.GetAll());
+        }
+
+        [HttpGet("GetCompleteTeam")]
+        public ActionResult<IEnumerable<TeamDTO>> GetCompleteTeam()
         {
             return Ok(_applicationServiceTeam.GetAll());
         }

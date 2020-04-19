@@ -17,7 +17,7 @@ namespace GameApi.Infrastructure.Data.Migrations
             Create.Table("Player")
             .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
             .WithColumn("Name").AsString().NotNullable()
-            .WithColumn("TeamId").AsInt32().ForeignKey("Team","Id");
+            .WithColumn("TeamId").AsInt32().Nullable().ForeignKey("Team","Id");
 
             Create.Table("Game")
             .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()

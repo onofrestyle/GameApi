@@ -10,6 +10,5 @@ namespace GameApi.Domain.Models
 
         public int Loses { get; set; }
 
-        public virtual IList<Player> Players { get; set; }
     }
 }

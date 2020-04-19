@@ -7,7 +7,7 @@ namespace GameApi.Application.Dto.DTO
         private int? _teamId;
         public int? TeamId
         {
-            get { return TeamId == 0? null : TeamId; }
+            get { return _teamId == 0? null : _teamId; }
             set { _teamId = value; }
         }
     }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using GameApi.Domain.Core.Interfaces.Repositorys;
 using GameApi.Domain.Models;
 using GameApi.Infrastructure.Data;

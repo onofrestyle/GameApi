@@ -3,6 +3,7 @@ using GameApi.Application.Interfaces;
 using GameApi.Domain.Core.Interfaces.Services;
 using GameApi.Infrastruture.CrossCutting.Adapter.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GameApi.Application.Service
 {
@@ -10,7 +11,7 @@ namespace GameApi.Application.Service
     {
         private readonly IPlayerService _playerService;
 
-         private readonly IPlayerMapper _playerMapper;
+        private readonly IPlayerMapper _playerMapper;
 
          public ApplicationServicePlayer(IPlayerService PlayerService, IPlayerMapper PlayerMapper)
         {
@@ -35,11 +36,22 @@ namespace GameApi.Application.Service
 
         public void Add(PlayerDTO obj)
         {
-            _playerService.Add(_playerMapper.MapperToEntity(obj));
+            try
+            {
+                TeamCompletedException(obj);
+
+                _playerService.Add(_playerMapper.MapperToEntity(obj));
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         public void Update(PlayerDTO obj)
         {
+            TeamCompletedException(obj);
+
             _playerService.Update(_playerMapper.MapperToEntity(obj));
         }
 
@@ -48,5 +60,15 @@ namespace GameApi.Application.Service
             _playerService.Dispose();
         }
 
+        private void TeamCompletedException(PlayerDTO obj)
+        {
+            if ((obj.TeamId.HasValue) && (obj.TeamId > 0))
+            {
+                var playersOnTeam = _playerService.GetByTeamId(obj.TeamId.Value);
+
+                if ((playersOnTeam.Count() > 4) && !(playersOnTeam.Where(x=> x.Id == obj.Id) == null))
+                    throw new System.Exception("Team is already completed");
+            }
+        }
     }
 }

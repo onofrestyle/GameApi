@@ -7,5 +7,6 @@ namespace GameApi.Application.Dto.DTO
         public int Wins { get; set; }
 
         public int Loses { get; set; }
+
     }
 }
