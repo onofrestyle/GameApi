@@ -1,2 +1,2 @@
 # GameApi
-sinple api using entityframework.core and sqlite
+simple api using entityframework.core and sqlite
